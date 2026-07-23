@@ -21,11 +21,11 @@ The system simulates hostile drones approaching an Armored Fighting Vehicle (AFV
 
 This project focuses on **simulation, visualization, and AI-assisted threat analysis** for research, educational, and software engineering purposes.
 
----
-<p align="center">
-  <img src="src/assets/outputt.png" width="850">
-</p>
-----
+<br><br>
+
+<img src="assets/outputt.png" width="900" alt="Counter System Dashboard">
+
+</div>
 
 # Features
 
