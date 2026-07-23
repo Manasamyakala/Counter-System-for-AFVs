@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFV SHIELD - Anti-Drone Command HUD</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hud-container">
+        <!-- HEADER PANEL -->
+        <header class="hud-panel header-panel">
+            <div class="header-left">
+                <span class="system-status-indicator pulse-green"></span>
+                <h1>AFV SHIELD - ANTI-DRONE COMMAND HUD v3.8</h1>
+            </div>
+            <div class="header-center">
+                <div class="afv-telemetry-badge">
+                    <span class="label">VEHICLE:</span>
+                    <span class="value" id="afv-name">M1A2 ABRAMS V</span>
+                </div>
+                <div class="afv-telemetry-badge">
+                    <span class="label">COORD:</span>
+                    <span class="value" id="afv-coord">X: 0.00, Y: 0.00</span>
+                </div>
+                <div class="afv-telemetry-badge">
+                    <span class="label">SPEED:</span>
+                    <span class="value" id="afv-speed">0.0 km/h</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="time-label" id="system-time">00:00:00</span>
+            </div>
+        </header>
+
+        <!-- MAIN GRID CONTENT -->
+        <main class="hud-main-grid">
+            
+            <!-- LEFT PANEL: TOP-VIEW RADAR -->
+            <section class="hud-panel radar-section">
+                <div class="panel-header">
+                    <h2>HORIZONTAL RADAR (TOP VIEW)</h2>
+                    <span class="panel-subtitle">360° RANGE SWEEP (Rmax = 3000m)</span>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="radar-canvas"></canvas>
+                </div>
+                <div class="radar-controls">
+                    <div class="radar-legend">
+                        <span class="legend-item"><span class="color-dot threat-critical"></span>Attack</span>
+                        <span class="legend-item"><span class="color-dot threat-high"></span>Swarm</span>
+                        <span class="legend-item"><span class="color-dot threat-medium"></span>Surveillance</span>
+                        <span class="legend-item"><span class="color-dot status-jamming"></span>Jamming</span>
+                        <span class="legend-item"><span class="color-dot status-neutralized"></span>Neutralized</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CENTER PANEL: DOWN-VIEW HEIGHT PROFILE -->
+            <section class="hud-panel elevation-section">
+                <div class="panel-header">
+                    <h2>VERTICAL PROFILE (DOWN/SIDE VIEW)</h2>
+                    <span class="panel-subtitle">ALTITUDE vs. HORIZONTAL DISTANCE (Zmax = 500m)</span>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="elevation-canvas"></canvas>
+                </div>
+                <div class="elevation-indicators">
+                    <div class="indicator-bar">
+                        <span class="label">JAMMER ENVELOPE:</span>
+                        <span class="value highlight-orange">1.5 km CONE</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT PANEL: DETECTED TARGETS & COUNTERMEASURES -->
+            <section class="hud-panel control-section">
+                <div class="panel-header">
+                    <h2>THREAT TARGETING MATRIX</h2>
+                </div>
+                <div class="target-list-container" id="target-list">
+                    <div class="no-targets">SCANNING AIRSPACE... NO ACTIVE THREATS</div>
+                </div>
+
+                <div class="countermeasure-control-panel">
+                    <h3>SOFT-KILL EMISSION SYSTEM</h3>
+                    <div class="selected-target-hud">
+                        <span class="label">TARGET REF:</span>
+                        <span class="value text-warning" id="selected-target-id">NONE SELECTED</span>
+                    </div>
+                    <div class="control-row">
+                        <div class="jammer-modes">
+                            <label class="control-btn radio-container">
+                                <input type="radio" name="jam-mode" value="RfJamming" checked>
+                                <span class="checkmark"></span>
+                                RF JAMMING
+                            </label>
+                            <label class="control-btn radio-container">
+                                <input type="radio" name="jam-mode" value="GpsSpoofing">
+                                <span class="checkmark"></span>
+                                GPS SPOOFING
+                            </label>
+                            <label class="control-btn radio-container">
+                                <input type="radio" name="jam-mode" value="Emp">
+                                <span class="checkmark"></span>
+                                EMP PULSE
+                            </label>
+                        </div>
+                    </div>
+                    <button class="fire-btn" id="fire-jammer-btn" disabled>ENGAGE COUNTERMEASURE</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER: TERMINAL LOGGER -->
+        <footer class="hud-footer-grid">
+            <section class="hud-panel terminal-panel">
+                <div class="panel-header">
+                    <h2>TACTICAL COMMUNICATIONS & EVENT LOG</h2>
+                </div>
+                <div class="terminal-log" id="terminal-log">
+                    <!-- Logs populated dynamically -->
+                </div>
+            </section>
+        </footer>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
