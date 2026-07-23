@@ -23,7 +23,7 @@ This project focuses on **simulation, visualization, and AI-assisted threat anal
 
 ---
 <p align="center">
-  <img src="assets/outputt.png" width="900" alt="AI Counter System Dashboard">
+  <img src="src/assets/outputt.png" width="900" alt="AI Counter System Dashboard">
 </p>
 # Features
 
