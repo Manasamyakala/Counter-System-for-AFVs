@@ -93,6 +93,53 @@ Operator Triggers Countermeasure
       ▼
 Drone Neutralized
 ```
+# Prerequisites
+
+Before running this project, ensure the following software is installed on your system.
+
+| Requirement | Version |
+|-------------|---------|
+| Rust | 1.80+ |
+| Cargo | Latest |
+| Git | Latest |
+| Web Browser | Chrome, Edge, Firefox |
+| Operating System | Windows / Linux / macOS |
+
+---
+
+## Required Rust Crates
+
+The project automatically installs the required dependencies from `Cargo.toml`.
+
+Some of the major crates include:
+
+- image
+- ndarray
+- ort (ONNX Runtime)
+- chrono
+- colored
+
+---
+
+## Verify Installation
+
+Check Rust installation
+
+```bash
+rustc --version
+```
+
+Check Cargo
+
+```bash
+cargo --version
+```
+
+Check Git
+
+```bash
+git --version
+```
 ---
 # Mathematical Formulations
 
