@@ -23,7 +23,7 @@ This project focuses on **simulation, visualization, and AI-assisted threat anal
 
 ---
 <p align="center">
-  <img src="src/assets/outputt.png" width="850" alt="Mathematical Formulations">
+  <img src="src/assets/outputt.png" width="850">
 </p>
 ----
 
